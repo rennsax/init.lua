@@ -1,15 +1,22 @@
+-- Disable some defaults
 return {
   {
-    "stevearc/conform.nvim",
-    config = function()
-      require "configs.conform"
-    end,
+    "numToStr/Comment.nvim",
+    enabled = false
   },
 
   {
-    "nvim-tree/nvim-tree.lua",
-    opts = {
-      git = { enable = true },
-    },
+    "williamboman/mason.nvim",
+    enabled = false
   },
+
+  {
+    "neovim/nvim-lspconfig",
+    enabled = false
+  },
+  
+  {
+    "hrsh7th/nvim-cmp",
+    enabled = false
+  }
 }
