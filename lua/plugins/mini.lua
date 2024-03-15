@@ -26,7 +26,7 @@ return { -- Collection of various small independent plugins/modules
       }
     }
 
-    require("mini.comment").setup()
+    -- require("mini.comment").setup()
 
     -- require("mini.trailspace").setup()
 

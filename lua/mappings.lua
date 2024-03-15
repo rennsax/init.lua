@@ -75,6 +75,9 @@ map({'i','v'}, '<C-l>', '<C-\\><C-N><C-w>l') -- Do not map <C-L> in terminal-mod
 map({'n','v','i'}, '<D-`>', '<C-\\><C-N><C-^>', { desc = "Edit previously edited file" })
 map({'n','v','i'}, '<D-t>', '<Cmd>vs<CR>', { desc = "Split current window into two, vertically" })
 map({'n','v','i'}, '<D-s>', '<Cmd>w<CR>', { desc = "Write buffer" })
+map({'n','v','i'}, '<D-}>', '<Cmd>bn<CR>', { desc = "Go to next buffer" })
+map({'n','v','i'}, '<D-{>', '<Cmd>bp<CR>', { desc = "Go to previous buffer" })
+map({'n','v','i'}, '<D-T>', '<Cmd>e#<CR>', { desc = "Edit previous buffer" })
 
 -- [[ "THE BEST" Keymaps ]]
 -- Originated from ThePrimeagen/init.lua
