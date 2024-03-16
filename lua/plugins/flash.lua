@@ -1,6 +1,5 @@
 return {
   "folke/flash.nvim",
-  event = "BufEnter",
   opts = {
     modes = {
       -- Try to use <c-s> when it's necessary to toggle flash.

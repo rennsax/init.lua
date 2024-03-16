@@ -1,14 +1,13 @@
 return {
   "haya14busa/vim-asterisk",
-  event = 'BufEnter',
-  config = function()
-    vim.keymap.set('', '*', '<Plug>(asterisk-*)')
-    vim.keymap.set('', '#', '<Plug>(asterisk-#)')
-    vim.keymap.set('', 'g*', '<Plug>(asterisk-g*)')
-    vim.keymap.set('', 'g#', '<Plug>(asterisk-g#)')
-    vim.keymap.set('', 'z*', '<Plug>(asterisk-z*)')
-    vim.keymap.set('', 'gz*', '<Plug>(asterisk-gz*)')
-    vim.keymap.set('', 'z#', '<Plug>(asterisk-z#)')
-    vim.keymap.set('', 'gz#', '<Plug>(asterisk-gz#)')
-  end
+  keys = {
+    {'*', mode = '', '<Plug>(asterisk-*)'},
+    {'#', mode = '', '<Plug>(asterisk-#)'},
+    {'g*', mode = '', '<Plug>(asterisk-g*)'},
+    {'g#', mode = '', '<Plug>(asterisk-g#)'},
+    {'z*', mode = '', '<Plug>(asterisk-z*)'},
+    {'gz*', mode = '', '<Plug>(asterisk-gz*)'},
+    {'z#', mode = '', '<Plug>(asterisk-z#)'},
+    {'gz#', mode = '', '<Plug>(asterisk-gz#)'},
+  },
 }
