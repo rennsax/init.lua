@@ -1,15 +1,44 @@
+-- Disable some defaults
 return {
   {
-    "stevearc/conform.nvim",
-    config = function()
-      require "configs.conform"
-    end,
+    "williamboman/mason.nvim",
+    enabled = false
   },
 
   {
-    "nvim-tree/nvim-tree.lua",
-    opts = {
-      git = { enable = true },
-    },
+    "neovim/nvim-lspconfig",
+    enabled = false
   },
+
+  -- ui
+  {
+    "NvChad/base46",
+    enabled = not vim.g.vscode,
+  },
+
+  {
+    "NvChad/ui",
+    enabled = not vim.g.vscode,
+  },
+
+  {
+    "NvChad/nvim-colorizer.lua",
+    enabled = not vim.g.vscode,
+  },
+
+  {
+    "nvim-tree/nvim-web-devicons",
+    enabled = not vim.g.vscode,
+  },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    enabled = not vim.g.vscode,
+  },
+
+  {
+    "folke/which-key.nvim",
+    enabled = not vim.g.vscode,
+  }
+
 }
