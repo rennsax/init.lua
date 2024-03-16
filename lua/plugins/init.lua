@@ -31,5 +31,14 @@ return {
     enabled = not vim.g.vscode,
   },
 
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    enabled = not vim.g.vscode,
+  },
+
+  {
+    "folke/which-key.nvim",
+    enabled = not vim.g.vscode,
+  }
 
 }

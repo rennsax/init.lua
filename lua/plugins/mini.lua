@@ -30,9 +30,11 @@ return { -- Collection of various small independent plugins/modules
 
     -- require("mini.trailspace").setup()
 
-    require("mini.cursorword").setup({
+    if not vim.g.vscode then
+      require("mini.cursorword").setup({
         delay = 400
-    })
+      })
+    end
 
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
