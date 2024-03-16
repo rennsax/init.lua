@@ -26,6 +26,14 @@ return {
     end
   },
 
+  {
+    "nvim-treesitter/nvim-treesitter",
+    enabled = not vim.g.vscode,
+    config = function()
+      require "configs.treesitter"
+    end,
+  },
+
 
   -- ui
   {
@@ -57,7 +65,7 @@ return {
 
   {
     "nvim-tree/nvim-tree.lua",
-    enabled = vim.g.vscode,
+    enabled = not vim.g.vscode,
     keys = {"<D-b>", "<Leader>b"},
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "nvimtree")
@@ -68,6 +76,6 @@ return {
       vim.keymap.set({'n','i','v'}, '<D-b>', "<Cmd>NvimTreeFocus<CR>", { desc = 'Toggle Nvim-tree' })
       vim.keymap.set('', '<Leader>b', "<Cmd>NvimTreeFocus<CR>", { desc = 'Toggle Nvim-tree' })
     end,
-  }
+  },
 
 }

@@ -31,6 +31,7 @@ map('c', '<C-a>', '<Home>')
 map('c', '<C-e>', '<End>')
 map('c', '<M-b>', '<S-Left>')
 map('c', '<M-f>', '<S-Right>')
+
 -- <VIM> cnoremap <C-A> <Home>
 -- <VIM> cnoremap <C-E> <End>
 -- <VIM> cnoremap <C-F> <Right>
@@ -40,17 +41,19 @@ map('c', '<M-f>', '<S-Right>')
 -- <VIM> inoremap <C-b> <Left>
 -- <VIM> inoremap <C-f> <Right>
 
---  See `:help wincmd` for a list of all window commands
---  Navigating between windows quickly, almost in every mode.
-map('n', '<C-h>', '<C-w><C-h>')
-map('n', '<C-l>', '<C-w><C-l>')
-map('n', '<C-j>', '<C-w><C-j>')
-map('n', '<C-k>', '<C-w><C-k>')
+if not vim.g.vscode then
+  --  See `:help wincmd` for a list of all window commands
+  --  Navigating between windows quickly, almost in every mode.
+  map('n', '<C-h>', '<C-w><C-h>')
+  map('n', '<C-l>', '<C-w><C-l>')
+  map('n', '<C-j>', '<C-w><C-j>')
+  map('n', '<C-k>', '<C-w><C-k>')
 
-map({'i','t','v'}, '<C-h>', '<C-\\><C-N><C-w>h')
-map({'i','t','v'}, '<C-j>', '<C-\\><C-N><C-w>j')
-map({'i','t','v'}, '<C-k>', '<C-\\><C-N><C-w>k')
-map({'i','v'}, '<C-l>', '<C-\\><C-N><C-w>l') -- Do not map <C-L> in terminal-mode
+  map({'i','t','v'}, '<C-h>', '<C-\\><C-N><C-w>h')
+  map({'i','t','v'}, '<C-j>', '<C-\\><C-N><C-w>j')
+  map({'i','t','v'}, '<C-k>', '<C-\\><C-N><C-w>k')
+  map({'i','v'}, '<C-l>', '<C-\\><C-N><C-w>l') -- Do not map <C-L> in terminal-mode
+end
 
 -- <VIM> nnoremap <C-h> <C-w><C-h>
 -- <VIM> nnoremap <C-l> <C-w><C-l>
@@ -68,16 +71,6 @@ map({'i','v'}, '<C-l>', '<C-\\><C-N><C-w>l') -- Do not map <C-L> in terminal-mod
 -- <VIM> vnoremap <C-k> <C-\><C-N><C-w>k
 -- <VIM> vnoremap <C-l> <C-\><C-N><C-w>l
 
--- [[ GUI-specified Keymaps ]]
--- These keymaps are only available when a GUI frontend is used.
--- On macOS, D=<Cmd>, M=Meta=<Alt>
-
-map({'n','v','i'}, '<D-`>', '<C-\\><C-N><C-^>', { desc = "Edit previously edited file" })
-map({'n','v','i'}, '<D-t>', '<Cmd>vs<CR>', { desc = "Split current window into two, vertically" })
-map({'n','v','i'}, '<D-s>', '<Cmd>w<CR>', { desc = "Write buffer" })
-map({'n','v','i'}, '<D-}>', '<Cmd>bn<CR>', { desc = "Go to next buffer" })
-map({'n','v','i'}, '<D-{>', '<Cmd>bp<CR>', { desc = "Go to previous buffer" })
-map({'n','v','i'}, '<D-T>', '<Cmd>e#<CR>', { desc = "Edit previous buffer" })
 
 -- [[ "THE BEST" Keymaps ]]
 -- Originated from ThePrimeagen/init.lua
@@ -92,8 +85,24 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "<C-f>", "<C-f>zz")
 map("n", "<C-b>", "<C-b>zz")
 
+-- <VIM> nnoremap <C-d> <C-d>zz
+-- <VIM> nnoremap <C-u> <C-u>zz
+-- <VIM> nnoremap <C-f> <C-f>zz
+-- <VIM> nnoremap <C-b> <C-b>zz
+
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
+-- <VIM> nnoremap n nzzzv
+-- <VIM> nnoremap N Nzzzv
+
 map("n", "<leader>rn",
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "[R]ename [S]ymbol (globally)" })
+
+-- [[ GUI-specified Keymaps ]]
+-- These keymaps are only available when a GUI frontend is used.
+-- On macOS, D=<Cmd>, M=Meta=<Alt>
+
+map({'n','v','i'}, '<D-`>', '<C-\\><C-N><C-^>', { desc = "Edit previously edited file" })
+map({'n','v','i'}, '<D-s>', '<Cmd>w<CR>', { desc = "Write buffer" })
+map({'n','v','i'}, '<D-T>', '<Cmd>e#<CR>', { desc = "Edit previous buffer" })

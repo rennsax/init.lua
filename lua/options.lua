@@ -6,14 +6,9 @@ local opt = vim.opt
 
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+--  So leader is mapped in init.lua.
 -- <VIM> let mapleader=" "
 -- <VIM> let maplocalleader=" "
--- g.mapleader = ' '
--- g.maplocalleader = ' '
-
--- Disable loading netrw by cheating with the variables
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
 
 -- For lazy.nvim
 g.have_nerd_font = true

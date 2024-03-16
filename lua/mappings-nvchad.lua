@@ -1,8 +1,10 @@
 -- NvChad related mapping
 local map = vim.keymap.set
 
+-- tabufline
+
 -- close buffer w/o closing the window (:bd)
-map("n", "<D-w>", function()
+map({'i','n','v'}, "<D-w>", function()
   require("nvchad.tabufline").close_buffer()
 end, { desc = "Buffer Close" })
 
@@ -10,8 +12,23 @@ map("n", "<Leader>x", function()
   require("nvchad.tabufline").close_buffer()
 end, { desc = "Buffer Close" })
 
+map({'i','n','v'}, "<D-t>", "<cmd>enew<CR>", { desc = "Buffer New" })
+
+map("n", "<tab>", function()
+  require("nvchad.tabufline").next()
+end, { desc = "Buffer Goto next" })
+map({'i','n','v'}, "<D-}>", function()
+  require("nvchad.tabufline").next()
+end, { desc = "Buffer Goto next" })
+
+map("n", "<S-tab>", function()
+  require("nvchad.tabufline").next()
+end, { desc = "Buffer Goto next" })
+map({'i','n','v'}, "<D-{>", function()
+  require("nvchad.tabufline").prev()
+end, { desc = "Buffer Goto prev" })
+
 -- terminal
--- map("t", "<C-x>", "<C-\\><C-N>", { desc = "Terminal Escape terminal mode" })
 
 -- new terminals
 map("n", "<leader>tnh", function()
@@ -30,7 +47,7 @@ end, { desc = "[T]erminal [T]oggleable [V]ertical term" })
 map("n",  "<Leader>tth", function()
   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm", size = 0.3 }
 end, { desc = "[T]erminal [T]oggleable [H]orizontal term" })
-map({ "n", "t" }, "<D-`>", function()
+map({ "n", "t", "i" }, "<D-j>", function()
   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm", size = 0.3 }
 end, { desc = "[T]erminal [T]oggleable [H]orizontal term" })
 
