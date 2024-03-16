@@ -49,8 +49,8 @@ opt.updatetime = 250
 
 -- Time in milliseconds to wait for a mapped sequence to complete.
 -- For example, jj => <ESC>
--- <VIM> set timeoutlen=600
-opt.timeoutlen = 600
+-- <VIM> set timeoutlen=1000
+opt.timeoutlen = 1000
 
 -- Configure how new splits should be opened
 -- <VIM> set splitright splitbelow

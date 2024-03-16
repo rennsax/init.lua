@@ -16,7 +16,7 @@ map("n", "<Down>", "gj", {remap = true})
 -- show hover
 -- map(
 --   "n", "<Leader>vh", "<cmd>lua require('vscode-neovim').call('editor.action.showHover')<CR>")
-map("n", "<Leader>vh", api_call("editor.action.showHover"))
+map("n", "<Leader>h", api_call("editor.action.showHover"))
 -- code refactor
 map("n", "<Leader>vcr", api_call("editor.action.refactor"))
 
