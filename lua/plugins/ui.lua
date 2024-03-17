@@ -19,6 +19,16 @@ local ui_plugins = {
       return require("plugins.configs.nvim-tree")
     end
   },
+
+  {
+    "rebelot/kanagawa.nvim",
+    enabled = not vim.g.vscode,
+    lazy = false,
+    config = function(_, opts)
+      require("kanagawa").setup(opts)
+      vim.cmd "colorscheme kanagawa"
+    end
+  }
 }
 
 return ui_plugins

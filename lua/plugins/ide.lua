@@ -76,6 +76,8 @@ return {
     opts = function()
       return require("plugins.configs.telescope")
     end,
+
+    dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
   {
