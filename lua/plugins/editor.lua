@@ -35,12 +35,18 @@ return {
     -- See `:help map-table` for the meaning of each abbreviation option.
     -- stylua: ignore
     keys = {
-      { "f", mode = { "n", "x", "o" }, function() require("flash").jump({
-        jump = { inclusive = false }
-      }) end, desc = "Simple [F]lash" },
+      {
+        "f", mode = { "n", "x", "o" }, function()
+          require("flash").jump({ jump = { inclusive = false } })
+        end, desc = "Simple [F]lash"
+      },
 
       -- Start selecting surrounding treesitter nodes from the current cursor.
-      { "<leader>ft", mode = { "n", "o" }, function() require("flash").treesitter() end, desc = "[F]lash [T]reesitter" },
+      {
+        "<leader>ft", mode = { "n", "o" }, function()
+          require("flash").treesitter()
+        end, desc = "[F]lash [T]reesitter"
+      },
 
       -- Remote flash is really useful in operator pending mode.
       -- It marks the current cursor position, jump to remote place to perform any motion,
@@ -85,15 +91,26 @@ return {
         }
       }
 
-      -- require("mini.comment").setup()
-
-      -- require("mini.trailspace").setup()
-
       if not vim.g.vscode then
         require("mini.cursorword").setup({
           delay = 400
         })
       end
+
+      require("mini.surround").setup({
+        mappings = {
+          add = "sa",
+          delete = "sd",
+          find = 'sf', -- Find surrounding (to the right)
+          find_left = 'sF', -- Find surrounding (to the left)
+          highlight = 'sh', -- Highlight surrounding
+          replace = 'sr', -- Replace surrounding
+          update_n_lines = 'sn', -- Update `n_lines`
+
+          suffix_last = 'l', -- Suffix to search with "prev" method
+          suffix_next = 'n', -- Suffix to search with "next" method
+        }
+      })
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
@@ -102,12 +119,13 @@ return {
 
   {
     "vim-scripts/ReplaceWithRegister",
-    event = "BufEnter",
+    keys = { "gr", "grr" },
   },
 
   {
     -- TODO try mini.surround
     "kylechui/nvim-surround",
+    enabled = false,
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "BufEnter",
     config = function()

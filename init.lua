@@ -38,7 +38,4 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "configs.mappings"
   require "configs.autocmds"
-  if not vim.g.vscode then
-    require "configs.mappings-nvchad"
-  end
 end)

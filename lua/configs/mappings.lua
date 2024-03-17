@@ -2,6 +2,10 @@
 
 local map = vim.keymap.set
 
+local mac_cmd_map = function(lhs, rhs, opts)
+  map({"n","i","v"}, lhs, rhs, opts)
+end
+
 -- [[ Basic Keymaps ]]
 --  See `:help keymap()`
 --  By default, remap = false (i.e. Xnoremap)
@@ -14,6 +18,7 @@ map('n', '<Down>', 'gj')
 map('n', 'Y', '"+y')
 map('x', 'Y', '"+y')
 map('n', '<leader>p', '"*p')
+map({'n', 'v'}, '<Leader>d', '"_d', { desc = "Delete with the black hole register" })
 
 -- <VIM> inoremap jj <Esc>
 -- <VIM> nnoremap <silent> <Leader>n <cmd>nohl<CR>
@@ -23,6 +28,8 @@ map('n', '<leader>p', '"*p')
 -- <VIM> xnoremap Y "+y
 -- <VIM> nnoremap Y "+y
 -- <VIM> nnoremap <Leader>p "*p
+-- <VIM> nnoremap <Leader>d "_d
+-- <VIM> vnoremap <Leader>d "_d
 
 -- Emac-like cursor move
 map({'c', 'i'}, '<C-F>', '<Right>')
@@ -40,37 +47,6 @@ map('c', '<M-f>', '<S-Right>')
 -- <VIM> cnoremap <Esc>f <S-Right>
 -- <VIM> inoremap <C-b> <Left>
 -- <VIM> inoremap <C-f> <Right>
-
-if not vim.g.vscode then
-  --  See `:help wincmd` for a list of all window commands
-  --  Navigating between windows quickly, almost in every mode.
-  map('n', '<C-h>', '<C-w><C-h>')
-  map('n', '<C-l>', '<C-w><C-l>')
-  map('n', '<C-j>', '<C-w><C-j>')
-  map('n', '<C-k>', '<C-w><C-k>')
-
-  map({'i','t','v'}, '<C-h>', '<C-\\><C-N><C-w>h')
-  map({'i','t','v'}, '<C-j>', '<C-\\><C-N><C-w>j')
-  map({'i','t','v'}, '<C-k>', '<C-\\><C-N><C-w>k')
-  map({'i','v'}, '<C-l>', '<C-\\><C-N><C-w>l') -- Do not map <C-L> in terminal-mode
-end
-
--- <VIM> nnoremap <C-h> <C-w><C-h>
--- <VIM> nnoremap <C-l> <C-w><C-l>
--- <VIM> nnoremap <C-j> <C-w><C-j>
--- <VIM> nnoremap <C-k> <C-w><C-k>
--- <VIM> tnoremap <C-h> <C-\><C-N><C-w>h
--- <VIM> tnoremap <C-j> <C-\><C-N><C-w>j
--- <VIM> tnoremap <C-k> <C-\><C-N><C-w>k
--- <VIM> inoremap <C-h> <C-\><C-N><C-w>h
--- <VIM> inoremap <C-j> <C-\><C-N><C-w>j
--- <VIM> inoremap <C-k> <C-\><C-N><C-w>k
--- <VIM> inoremap <C-l> <C-\><C-N><C-w>l
--- <VIM> vnoremap <C-h> <C-\><C-N><C-w>h
--- <VIM> vnoremap <C-j> <C-\><C-N><C-w>j
--- <VIM> vnoremap <C-k> <C-\><C-N><C-w>k
--- <VIM> vnoremap <C-l> <C-\><C-N><C-w>l
-
 
 -- [[ "THE BEST" Keymaps ]]
 -- Originated from ThePrimeagen/init.lua
@@ -103,6 +79,41 @@ map("n", "<leader>rn",
 -- These keymaps are only available when a GUI frontend is used.
 -- On macOS, D=<Cmd>, M=Meta=<Alt>
 
-map({'n','v','i'}, '<D-`>', '<C-\\><C-N><C-^>', { desc = "Edit previously edited file" })
-map({'n','v','i'}, '<D-s>', '<Cmd>w<CR>', { desc = "Write buffer" })
-map({'n','v','i'}, '<D-T>', '<Cmd>e#<CR>', { desc = "Edit previous buffer" })
+mac_cmd_map('<D-`>', '<C-\\><C-N><C-^>', { desc = "Edit previously edited file" })
+mac_cmd_map('<D-s>', '<Cmd>w<CR>', { desc = "Write buffer" })
+mac_cmd_map('<D-v>', '<Esc>"*pa', { desc = "Paste from system clipborad" })
+
+
+if not vim.g.vscode then
+  --  See `:help wincmd` for a list of all window commands
+  --  Navigating between windows quickly, almost in every mode.
+  map('n', '<C-h>', '<C-w><C-h>')
+  map('n', '<C-l>', '<C-w><C-l>')
+  map('n', '<C-j>', '<C-w><C-j>')
+  map('n', '<C-k>', '<C-w><C-k>')
+
+  map({'i','t','v'}, '<C-h>', '<C-\\><C-N><C-w>h')
+  map({'i','t','v'}, '<C-j>', '<C-\\><C-N><C-w>j')
+  map({'i','t','v'}, '<C-k>', '<C-\\><C-N><C-w>k')
+  map({'i','v'}, '<C-l>', '<C-\\><C-N><C-w>l') -- Do not map <C-L> in terminal-mode
+
+-- <VIM> nnoremap <C-h> <C-w><C-h>
+-- <VIM> nnoremap <C-l> <C-w><C-l>
+-- <VIM> nnoremap <C-j> <C-w><C-j>
+-- <VIM> nnoremap <C-k> <C-w><C-k>
+-- <VIM> tnoremap <C-h> <C-\><C-N><C-w>h
+-- <VIM> tnoremap <C-j> <C-\><C-N><C-w>j
+-- <VIM> tnoremap <C-k> <C-\><C-N><C-w>k
+-- <VIM> inoremap <C-h> <C-\><C-N><C-w>h
+-- <VIM> inoremap <C-j> <C-\><C-N><C-w>j
+-- <VIM> inoremap <C-k> <C-\><C-N><C-w>k
+-- <VIM> inoremap <C-l> <C-\><C-N><C-w>l
+-- <VIM> vnoremap <C-h> <C-\><C-N><C-w>h
+-- <VIM> vnoremap <C-j> <C-\><C-N><C-w>j
+-- <VIM> vnoremap <C-k> <C-\><C-N><C-w>k
+-- <VIM> vnoremap <C-l> <C-\><C-N><C-w>l
+
+  -- Include NvChad-specified keymappings.
+  require "configs.mappings-nvchad"
+end
+
