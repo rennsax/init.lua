@@ -24,11 +24,24 @@ local ui_plugins = {
     "rebelot/kanagawa.nvim",
     enabled = not vim.g.vscode,
     lazy = false,
+    opts = {
+      -- Remove the background of LineNr, {Sign,Fold}Column and friends
+      colors = {
+        theme = {
+          all = {
+            ui = {
+              bg_gutter = "none"
+            }
+          }
+        }
+      }
+    },
     config = function(_, opts)
       require("kanagawa").setup(opts)
       vim.cmd "colorscheme kanagawa"
     end
-  }
+  },
+
 }
 
 return ui_plugins
