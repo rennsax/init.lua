@@ -128,34 +128,33 @@ local ui_plugins = {
         end,
       })
     end,
-    dependencies = {
-      -- buffer remove
+  },
+
+  -- buffer remove
+  {
+    "echasnovski/mini.bufremove",
+    keys = {
       {
-        "echasnovski/mini.bufremove",
-        keys = {
-          {
-            "<leader>x",
-            function()
-              local bd = require("mini.bufremove").delete
-              if vim.bo.modified then
-                local choice = vim.fn.confirm(("Save changes to %q?"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
-                if choice == 1 then -- Yes
-                  vim.cmd.write()
-                  bd(0)
-                elseif choice == 2 then -- No
-                  bd(0, true)
-                end
-              else
-                bd(0)
-              end
-            end,
-            desc = "[T]ab [D]elete (replace :bd)",
-          },
-          -- stylua: ignore
-          { "<leader>X", function() require("mini.bufremove").delete(0, true) end, desc = "Forcely [T]ab [D]elete (replace :bD)" },
-        },
+        "<leader>x",
+        function()
+          local bd = require("mini.bufremove").delete
+          if vim.bo.modified then
+            local choice = vim.fn.confirm(("Save changes to %q?"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
+            if choice == 1 then -- Yes
+              vim.cmd.write()
+              bd(0)
+            elseif choice == 2 then -- No
+              bd(0, true)
+            end
+          else
+            bd(0)
+          end
+        end,
+        desc = "[T]ab [D]elete (replace :bd)",
       },
-    }
+      -- stylua: ignore
+      { "<leader>X", function() require("mini.bufremove").delete(0, true) end, desc = "Forcely [T]ab [D]elete (replace :bD)" },
+    },
   },
 
   {
