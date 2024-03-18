@@ -180,6 +180,12 @@ local ui_plugins = {
       vim.o.timeoutlen = 300
     end
   },
+
+  {
+    'norcalli/nvim-colorizer.lua',
+    cmd = "ColorizerToggle",
+    config = true
+  },
 }
 
 return ui_plugins
