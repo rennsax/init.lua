@@ -1,5 +1,3 @@
--- require "nvchad.options"
-
 local g = vim.g
 local o = vim.o
 local opt = vim.opt
@@ -20,8 +18,9 @@ g.have_nerd_font = true
 opt.number = true
 opt.relativenumber = true
 
+-- Mouse mode is useful when resizing the windows.
 -- <VIM> set mouse=
-opt.mouse = ''
+opt.mouse = 'a'
 
 -- <VIM> set nosmd
 opt.showmode = false
@@ -125,9 +124,6 @@ opt.tabstop = 4
 opt.softtabstop = 4
 
 if g.neovide then
-  -- Mouse mode is useful when resizing the windows.
-  opt.mouse = 'a'
-
   g.neovide_input_macos_alt_is_meta = true
   g.neovide_padding_top = 10
   g.neovide_padding_bottom = 10

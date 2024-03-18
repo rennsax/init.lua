@@ -1,5 +1,3 @@
--- require "nvchad.mappings"
-
 local map = vim.keymap.set
 
 local mac_cmd_map = function(lhs, rhs, opts)
@@ -19,6 +17,9 @@ map('n', 'Y', '"+y')
 map('x', 'Y', '"+y')
 map('n', '<leader>p', '"*p')
 map({'n', 'v'}, '<Leader>d', '"_d', { desc = "Delete with the black hole register" })
+
+-- For telescope
+map('n', '<Leader>s', '<Nop>')
 
 -- <VIM> inoremap jj <Esc>
 -- <VIM> nnoremap <silent> <Leader>n <cmd>nohl<CR>
@@ -113,7 +114,5 @@ if not vim.g.vscode then
 -- <VIM> vnoremap <C-k> <C-\><C-N><C-w>k
 -- <VIM> vnoremap <C-l> <C-\><C-N><C-w>l
 
-  -- Include NvChad-specified keymappings.
-  require "configs.mappings-nvchad"
 end
 

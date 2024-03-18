@@ -43,7 +43,7 @@ return {
 
       -- Start selecting surrounding treesitter nodes from the current cursor.
       {
-        "<leader>ft", mode = { "n", "o" }, function()
+        "S", mode = { "n", "x", "o" }, function()
           require("flash").treesitter()
         end, desc = "[F]lash [T]reesitter"
       },
@@ -63,58 +63,84 @@ return {
     },
   },
 
-  { -- Collection of various small independent plugins/modules
-    'echasnovski/mini.nvim',
-    event = "BufEnter",
-    config = function()
-      -- Better Around/Inside textobjects
-      --
-     -- Examples:
-      --  - va)  - [V]isually select [A]round [)]paren
-      --  - yinq - [Y]ank [I]nside [N]ext [']quote
-      --  - ci'  - [C]hange [I]nside [']quote
-      require('mini.ai').setup {
-        custom_textobjects = {
-          n_lines = 500,
-          -- mini.ai applies its own bracket aliases
-          -- which alias b to "),] and }"
-          b = false,
-          -- Whole buffer
-          e = function()
-            local from = { line = 1, col = 1 }
-            local to = {
-              line = vim.fn.line('$'),
-              col = math.max(vim.fn.getline('$'):len(), 1)
-            }
-            return { from = from, to = to }
-          end
+  {
+    'echasnovski/mini.pairs',
+    event = "InsertEnter",
+    opts = function()
+      -- If the right side of the cursor is space character or one of
+      -- ], ), ", ', `, enable autopairs.
+      local reg_right = '[]})"`' .. "'%s]"
+      local options = {
+        mappings = {
+          ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\]' .. reg_right },
+          ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\]' .. reg_right },
+          ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\]' .. reg_right },
+
+          [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+          [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+          ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+
+          ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^\\]" .. reg_right, register = { cr = false } },
+          ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%a\\]" .. reg_right, register = { cr = false } },
+          ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^\\]" .. reg_right, register = { cr = false } },
         }
       }
-
-      if not vim.g.vscode then
-        require("mini.cursorword").setup({
-          delay = 400
-        })
-      end
-
-      require("mini.surround").setup({
-        mappings = {
-          add = "sa",
-          delete = "sd",
-          find = 'sf', -- Find surrounding (to the right)
-          find_left = 'sF', -- Find surrounding (to the left)
-          highlight = 'sh', -- Highlight surrounding
-          replace = 'sr', -- Replace surrounding
-          update_n_lines = 'sn', -- Update `n_lines`
-
-          suffix_last = 'l', -- Suffix to search with "prev" method
-          suffix_next = 'n', -- Suffix to search with "next" method
-        }
-      })
-
-      -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
+      return options
     end,
+    config = true,
+  },
+
+  {
+    -- Examples:
+    --  - va)  - [V]isually select [A]round [)]paren
+    --  - yinq - [Y]ank [I]nside [N]ext [']quote
+    --  - ci'  - [C]hange [I]nside [']quote
+    'echasnovski/mini.ai',
+    event = "VeryLazy",
+    opts = {
+      custom_textobjects = {
+        n_lines = 500,
+        -- mini.ai applies its own bracket aliases
+        -- which alias b to "),] and }"
+        b = false,
+        -- Whole buffer
+        e = function()
+          local from = { line = 1, col = 1 }
+          local to = {
+            line = vim.fn.line('$'),
+            col = math.max(vim.fn.getline('$'):len(), 1)
+          }
+          return { from = from, to = to }
+        end
+      }
+    },
+    config = true,
+  },
+
+  {
+    'echasnovski/mini.surround',
+    event = "VeryLazy",
+    opts = {
+      mappings = {
+        add = "sa",
+        delete = "sd",
+        find = 'sf', -- Find surrounding (to the right)
+        find_left = 'sF', -- Find surrounding (to the left)
+        highlight = 'sh', -- Highlight surrounding
+        replace = 'sc', -- Replace surrounding
+        update_n_lines = 'sn', -- Update `n_lines`
+
+        suffix_last = 'l', -- Suffix to search with "prev" method
+        suffix_next = 'n', -- Suffix to search with "next" method
+      }
+    },
+    config = true,
+  },
+
+  {
+    'echasnovski/mini.comment',
+    event = "BufEnter",
+    config = true,
   },
 
   {
@@ -122,16 +148,4 @@ return {
     keys = { "gr", "grr" },
   },
 
-  {
-    -- TODO try mini.surround
-    "kylechui/nvim-surround",
-    enabled = false,
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "BufEnter",
-    config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end
-  }
 }
