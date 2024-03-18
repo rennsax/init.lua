@@ -1,5 +1,3 @@
--- require "nvchad.mappings"
-
 local map = vim.keymap.set
 
 local mac_cmd_map = function(lhs, rhs, opts)
