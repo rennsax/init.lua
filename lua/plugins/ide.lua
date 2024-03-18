@@ -53,7 +53,6 @@ return {
 
   {
     'nvim-telescope/telescope.nvim',
-    enabled = not vim.g.vscode,
     cmd = "Telescope",
     keys = function ()
       local builtin = require('telescope.builtin')
