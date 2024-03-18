@@ -1,7 +1,12 @@
+if vim.g.vscode then
+  return {}
+end
+
 return {
   {
     "hrsh7th/nvim-cmp",
-    enabled = not vim.g.vscode,
+    enabled = false,
+    event = "InsertEnter",
     opts = function()
       return require "plugins.configs.cmp"
     end
@@ -25,16 +30,8 @@ return {
     keys = {
       {"<Leader>u", mode = "n", function() vim.cmd.UndotreeToggle() end, { desc = "Toggle Undotree" }}
     },
-    config = function()
+    init = function()
       vim.g.undotree_WindowLayout = 3
-    end
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-    enabled = not vim.g.vscode,
-    opts = function ()
-      return require("plugins.configs.treesitter")
     end
   },
 
@@ -82,7 +79,7 @@ return {
 
   {
     "iamcco/markdown-preview.nvim",
-    enabled = not vim.g.vscode,
+    enabled = false,
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && yarn install",
     init = function()
@@ -93,7 +90,6 @@ return {
 
   {
     'wakatime/vim-wakatime',
-    enabled = not vim.g.vscode,
     event = "VeryLazy"
   },
 

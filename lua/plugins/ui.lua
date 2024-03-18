@@ -1,15 +1,24 @@
+if vim.g.vscode then
+  return {}
+end
+
+require("lazyvim.util").lazy_file()
+
 local ui_plugins = {
   {
     "lewis6991/gitsigns.nvim",
-    enabled = not vim.g.vscode,
-
+    event = "LazyFile",
     opts = function ()
       return require("plugins.configs.gitsigns")
     end
   },
   {
     "nvim-tree/nvim-tree.lua",
-    enabled = not vim.g.vscode,
+    cmd = {
+      "NvimTreeToggle",
+      "NvimTreeOpen",
+      "NvimTreeFocus",
+    },
     keys = {
       {"<D-b>", mode = {'n','i','v'}, "<Cmd>NvimTreeFocus<CR>", { desc = 'Toggle Nvim-tree' }},
       {"<Leader>b", mode = '', "<Cmd>NvimTreeFocus<CR>", { desc = 'Toggle Nvim-tree' }},
@@ -22,7 +31,6 @@ local ui_plugins = {
 
   {
     "rebelot/kanagawa.nvim",
-    enabled = not vim.g.vscode,
     lazy = false,
     opts = {
       -- Remove the background of LineNr, {Sign,Fold}Column and friends
