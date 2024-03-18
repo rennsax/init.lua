@@ -43,7 +43,7 @@ return {
 
       -- Start selecting surrounding treesitter nodes from the current cursor.
       {
-        "<leader>ft", mode = { "n", "o" }, function()
+        "S", mode = { "n", "x", "o" }, function()
           require("flash").treesitter()
         end, desc = "[F]lash [T]reesitter"
       },
@@ -66,21 +66,27 @@ return {
   {
     'echasnovski/mini.pairs',
     event = "InsertEnter",
-    opts = {
-      mappings = {
-        ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\][%s]' },
-        ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\][%s]' },
-        ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\][%s]' },
+    opts = function()
+      -- If the right side of the cursor is space character or one of
+      -- ], ), ", ', `, enable autopairs.
+      local reg_right = '[]})"`' .. "'%s]"
+      local options = {
+        mappings = {
+          ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\]' .. reg_right },
+          ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\]' .. reg_right },
+          ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\]' .. reg_right },
 
-        [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
-        [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
-        ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+          [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+          [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+          ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
 
-        ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^\\][%s]", register = { cr = false } },
-        ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%a\\][%s]", register = { cr = false } },
-        ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^\\][%s]", register = { cr = false } },
+          ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^\\]" .. reg_right, register = { cr = false } },
+          ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%a\\]" .. reg_right, register = { cr = false } },
+          ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^\\]" .. reg_right, register = { cr = false } },
+        }
       }
-    },
+      return options
+    end,
     config = true,
   },
 
