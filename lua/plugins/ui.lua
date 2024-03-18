@@ -5,6 +5,12 @@ end
 require("lazyvim.util").lazy_file()
 
 local ui_plugins = {
+
+  {
+    -- required by many plugins
+    "nvim-tree/nvim-web-devicons",
+  },
+
   {
     "lewis6991/gitsigns.nvim",
     event = "LazyFile",
@@ -140,6 +146,19 @@ local ui_plugins = {
         },
       },
     }
+  },
+
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return {
+        options = {
+          globalstatus = true
+        }
+      }
+    end,
+    config = true,
   },
 
 }
