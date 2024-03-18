@@ -5,8 +5,24 @@ end
 return {
   {
     "hrsh7th/nvim-cmp",
-    enabled = false,
     event = "InsertEnter",
+    dependencies = {
+      -- snippet engine
+      {
+        "L3MON4D3/LuaSnip",
+        opts = {
+          history = true,
+          delete_check_events = "TextChanged",
+        },
+      },
+
+      -- cmp sources
+      {
+        -- "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+      }
+    },
     opts = function()
       return require "plugins.configs.cmp"
     end
