@@ -65,7 +65,22 @@ return {
 
   {
     'echasnovski/mini.pairs',
-    event = "BufEnter",
+    event = "InsertEnter",
+    opts = {
+      mappings = {
+        ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\][%s]' },
+        ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\][%s]' },
+        ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\][%s]' },
+
+        [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+        [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+        ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+
+        ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^\\][%s]", register = { cr = false } },
+        ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%a\\][%s]", register = { cr = false } },
+        ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^\\][%s]", register = { cr = false } },
+      }
+    },
     config = true,
   },
 
@@ -75,7 +90,7 @@ return {
     --  - yinq - [Y]ank [I]nside [N]ext [']quote
     --  - ci'  - [C]hange [I]nside [']quote
     'echasnovski/mini.ai',
-    event = "BufEnter",
+    event = "VeryLazy",
     opts = {
       custom_textobjects = {
         n_lines = 500,
@@ -97,16 +112,8 @@ return {
   },
 
   {
-    'echasnovski/mini.cursorword',
-    event = "BufEnter",
-    enabled = not vim.g.vscode,
-    opts = { delay = 400 },
-    config = true,
-  },
-
-  {
     'echasnovski/mini.surround',
-    event = "BufEnter",
+    event = "VeryLazy",
     opts = {
       mappings = {
         add = "sa",
