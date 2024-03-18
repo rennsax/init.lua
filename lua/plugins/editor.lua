@@ -43,7 +43,8 @@ return {
 
       -- Start selecting surrounding treesitter nodes from the current cursor.
       {
-        "S", mode = { "n", "x", "o" }, function()
+        -- Remove map in virtual mode in case of conflict with nvim-surround.
+        "S", mode = { "n", "o" }, function()
           require("flash").treesitter()
         end, desc = "[F]lash [T]reesitter"
       },
@@ -115,24 +116,11 @@ return {
     },
   },
 
-  {
-    'echasnovski/mini.surround',
-    event = "VeryLazy",
-    opts = {
-      mappings = {
-        add = "sa",
-        delete = "sd",
-        find = 'sf', -- Find surrounding (to the right)
-        find_left = 'sF', -- Find surrounding (to the left)
-        highlight = 'sh', -- Highlight surrounding
-        replace = 'sc', -- Replace surrounding
-        update_n_lines = 'sn', -- Update `n_lines`
-
-        suffix_last = 'l', -- Suffix to search with "prev" method
-        suffix_next = 'n', -- Suffix to search with "next" method
-      }
-    },
-  },
+	{
+		"kylechui/nvim-surround",
+    keys = { "ys", "cs", "ds", { "S", mode = 'v' }, { "<C-g>s", mode = 'i' } },
+    opts = {},
+	},
 
   {
     'echasnovski/mini.comment',
