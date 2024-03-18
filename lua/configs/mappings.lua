@@ -113,7 +113,5 @@ if not vim.g.vscode then
 -- <VIM> vnoremap <C-k> <C-\><C-N><C-w>k
 -- <VIM> vnoremap <C-l> <C-\><C-N><C-w>l
 
-  -- Include NvChad-specified keymappings.
-  require "configs.mappings-nvchad"
 end
 
