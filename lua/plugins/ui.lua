@@ -118,7 +118,7 @@ local ui_plugins = {
         "echasnovski/mini.bufremove",
         keys = {
           {
-            "<leader>td",
+            "<leader>x",
             function()
               local bd = require("mini.bufremove").delete
               if vim.bo.modified then
@@ -136,7 +136,7 @@ local ui_plugins = {
             desc = "[T]ab [D]elete (replace :bd)",
           },
           -- stylua: ignore
-          { "<leader>tD", function() require("mini.bufremove").delete(0, true) end, desc = "Forcely [T]ab [D]elete (replace :bD)" },
+          { "<leader>X", function() require("mini.bufremove").delete(0, true) end, desc = "Forcely [T]ab [D]elete (replace :bD)" },
         },
       },
     }
