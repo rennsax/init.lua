@@ -158,7 +158,6 @@ local ui_plugins = {
         }
       }
     end,
-    config = true,
   },
 
   {

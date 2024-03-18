@@ -87,7 +87,6 @@ return {
       }
       return options
     end,
-    config = true,
   },
 
   {
@@ -114,7 +113,6 @@ return {
         end
       }
     },
-    config = true,
   },
 
   {
@@ -134,7 +132,6 @@ return {
         suffix_next = 'n', -- Suffix to search with "next" method
       }
     },
-    config = true,
   },
 
   {
