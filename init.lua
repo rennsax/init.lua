@@ -14,6 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 require "configs.options"
 
 -- load plugins
+-- For lazy.nvim, specify either `opts = {}` or `config = true` will run
+-- the default setup routine (`require(MAIN).setup()`) when the plugin is loaded.
 require("lazy").setup({
   { import = "plugins" },
 }, require "plugins.configs.lazy")

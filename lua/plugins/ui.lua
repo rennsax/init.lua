@@ -161,6 +161,16 @@ local ui_plugins = {
     config = true,
   },
 
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {},
+    init = function()
+      -- When which-key is enabled, timeout will pop the key binding window.
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end
+  },
 }
 
 return ui_plugins
