@@ -48,7 +48,17 @@ local ui_plugins = {
             }
           }
         }
-      }
+      },
+      dimInactive = true,
+      overrides = function(colors)
+        return {
+          WinSeparator = {
+            -- Make the window separator more visible
+            bg = colors.palette.bg_m3,
+            fg = colors.palette.oniViolet,
+          },
+        }
+      end
     },
     config = function(_, opts)
       require("kanagawa").setup(opts)
