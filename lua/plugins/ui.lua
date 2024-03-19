@@ -26,8 +26,8 @@ local ui_plugins = {
       "NvimTreeFocus",
     },
     keys = {
-      {"<D-b>", mode = {'n','i','v'}, "<Cmd>NvimTreeFocus<CR>", { desc = 'Toggle Nvim-tree' }},
-      {"<Leader>b", mode = '', "<Cmd>NvimTreeFocus<CR>", { desc = 'Toggle Nvim-tree' }},
+      {"<D-b>", mode = {'n','i','v'}, "<Cmd>NvimTreeFocus<CR>", desc = 'Toggle Nvim-tree' },
+      {"<Leader>b", mode = '', "<Cmd>NvimTreeFocus<CR>", desc = 'Toggle Nvim-tree' },
     },
 
     opts = function()

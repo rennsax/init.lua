@@ -44,7 +44,7 @@ return {
   {
     "mbbill/undotree",
     keys = {
-      {"<Leader>u", mode = "n", function() vim.cmd.UndotreeToggle() end, { desc = "Toggle Undotree" }}
+      {"<Leader>u", mode = "n", function() vim.cmd.UndotreeToggle() end, desc = "Toggle Undotree" }
     },
     init = function()
       vim.g.undotree_WindowLayout = 3
@@ -57,32 +57,32 @@ return {
     keys = function ()
       local builtin = require('telescope.builtin')
       return {
-        { '<leader>sh', mode = 'n', builtin.help_tags, { desc = '[S]earch [H]elp' }},
-        { '<leader>sk', mode = 'n', builtin.keymaps, { desc = '[S]earch [K]eymaps' }},
-        { '<leader>sf', mode = 'n', builtin.find_files, { desc = '[S]earch [F]iles' }},
-        { '<D-p>', mode = {'n','v','i'}, builtin.find_files, { desc = '[S]earch [F]iles' }},
-        { '<leade>ss', mode = 'n', builtin.builtin, { desc = '[S]earch [S]elect Telescope' }},
-        { '<leader>sw', mode = 'n', builtin.grep_string, { desc = '[S]earch current [W]ord' }},
-        { '<leader>rg', mode = 'n', builtin.live_grep, { desc = '[R]ip[G]rep' }},
-        { '<leader>sd', mode = 'n', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' }},
-        { '<leader>sr', mode = 'n', builtin.resume, { desc = '[S]earch [R]esume' }},
-        { '<leader>s.', mode = 'n', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' }},
-        { '<D-o>', mode = {'n','v','i'}, builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' }},
-        { '<leader><leader>', mode = 'n', builtin.buffers, { desc = '[ ] Find existing buffers' }},
+        { '<leader>sh', mode = 'n', builtin.help_tags,  desc = '[S]earch [H]elp' },
+        { '<leader>sk', mode = 'n', builtin.keymaps, desc = '[S]earch [K]eymaps' },
+        { '<leader>sf', mode = 'n', builtin.find_files, desc = '[S]earch [F]iles' },
+        { '<D-p>', mode = {'n','v','i'}, builtin.find_files, desc = '[S]earch [F]iles' },
+        { '<leade>ss', mode = 'n', builtin.builtin, desc = '[S]earch [S]elect Telescope' },
+        { '<leader>sw', mode = 'n', builtin.grep_string, desc = '[S]earch current [W]ord' },
+        { '<leader>rg', mode = 'n', builtin.live_grep, desc = '[R]ip[G]rep' },
+        { '<leader>sd', mode = 'n', builtin.diagnostics, desc = '[S]earch [D]iagnostics' },
+        { '<leader>sr', mode = 'n', builtin.resume, desc = '[S]earch [R]esume' },
+        { '<leader>s.', mode = 'n', builtin.oldfiles, desc = '[S]earch Recent Files ("." for repeat)' },
+        { '<D-o>', mode = {'n','v','i'}, builtin.oldfiles, desc = '[S]earch Recent Files ("." for repeat)' },
+        { '<leader><leader>', mode = 'n', builtin.buffers, desc = '[ ] Find existing buffers' },
         {
           '<Leader>/', mode = 'n', function ()
             builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
               winblend = 10,
               previewer = false,
             })
-          end, { desc = '[/] Fuzzily search in current buffer' }
+          end, desc = '[/] Fuzzily search in current buffer' 
         },
         {
           '<Leader>sc', mode = 'n', function ()
             builtin.find_files { cwd = vim.fn.stdpath 'config' }
-          end, { desc = '[S]earch [C]onfiguration files' }
+          end, desc = '[S]earch [C]onfiguration files' 
         },
-        { '<leader>st', mode = 'n', '<cmd>TodoTelescope<cr>', { desc = '[S]earch [T]odos' } },
+        { '<leader>st', mode = 'n', '<cmd>TodoTelescope<cr>', desc = '[S]earch [T]odos'  },
       }
     end,
 
