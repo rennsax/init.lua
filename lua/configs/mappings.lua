@@ -19,9 +19,6 @@ map('n', '<leader>p', '"*p')
 map({'n', 'v'}, '<Leader>d', '"_d', { desc = "Delete with the black hole register" })
 map('n', 'q:', '<Nop>')
 
--- For telescope
-map('n', '<Leader>s', '<Nop>')
-
 -- <VIM> inoremap jj <Esc>
 -- <VIM> nnoremap <silent> <Leader>n <cmd>nohl<CR>
 -- <VIM> nnoremap <silent> <M-u> <cmd>nohl<CR>
