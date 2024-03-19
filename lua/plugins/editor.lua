@@ -65,32 +65,6 @@ return {
   },
 
   {
-    'echasnovski/mini.pairs',
-    event = "InsertEnter",
-    opts = function()
-      -- If the right side of the cursor is space character or one of
-      -- ], ), ", ', `, enable autopairs.
-      local reg_right = '[]})"`' .. "'%s]"
-      local options = {
-        mappings = {
-          ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\]' .. reg_right },
-          ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\]' .. reg_right },
-          ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\]' .. reg_right },
-
-          [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
-          [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
-          ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
-
-          ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^\\]" .. reg_right, register = { cr = false } },
-          ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%a\\]" .. reg_right, register = { cr = false } },
-          ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^\\]" .. reg_right, register = { cr = false } },
-        }
-      }
-      return options
-    end,
-  },
-
-  {
     -- Examples:
     --  - va)  - [V]isually select [A]round [)]paren
     --  - yinq - [Y]ank [I]nside [N]ext [']quote
