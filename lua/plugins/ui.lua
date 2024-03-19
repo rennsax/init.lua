@@ -57,6 +57,9 @@ local ui_plugins = {
             bg = colors.palette.bg_m3,
             fg = colors.palette.oniViolet,
           },
+          Visual = {
+            bg = colors.palette.waveBlue2,
+          },
         }
       end
     },
