@@ -108,8 +108,9 @@ return {
     event = "VeryLazy"
   },
 
+  -- Fugitive - git integration. Useful and dedicate!
   {
     "tpope/vim-fugitive",
-    cmd = { "Git", "G" }
+    event = "VeryLazy",
   }
 }
