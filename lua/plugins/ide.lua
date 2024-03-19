@@ -82,6 +82,7 @@ return {
             builtin.find_files { cwd = vim.fn.stdpath 'config' }
           end, { desc = '[S]earch [C]onfiguration files' }
         },
+        { '<leader>st', mode = 'n', '<cmd>TodoTelescope<cr>', { desc = '[S]earch [T]odos' } },
       }
     end,
 
