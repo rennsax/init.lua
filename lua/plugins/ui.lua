@@ -172,7 +172,20 @@ local ui_plugins = {
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      triggers_nowait = {
+        -- marks
+        "`",
+        "'",
+        "g`",
+        "g'",
+        -- registers
+        '"',
+        "<c-r>",
+        -- spelling
+        "z=",
+      },
+    },
   },
 
   {
