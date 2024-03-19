@@ -17,6 +17,7 @@ map('n', 'Y', '"+y')
 map('x', 'Y', '"+y')
 map('n', '<leader>p', '"*p')
 map({'n', 'v'}, '<Leader>d', '"_d', { desc = "Delete with the black hole register" })
+map('n', 'q:', '<Nop>')
 
 -- For telescope
 map('n', '<Leader>s', '<Nop>')
@@ -31,6 +32,7 @@ map('n', '<Leader>s', '<Nop>')
 -- <VIM> nnoremap <Leader>p "*p
 -- <VIM> nnoremap <Leader>d "_d
 -- <VIM> vnoremap <Leader>d "_d
+-- <VIM> nnoremap q: <Nop>
 
 -- Emac-like cursor move
 map({'c', 'i'}, '<C-F>', '<Right>')
