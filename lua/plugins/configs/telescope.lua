@@ -1,3 +1,5 @@
+local actions = require("telescope.actions")
+
 local options = {
   defaults = {
     vimgrep_arguments = {
@@ -45,11 +47,16 @@ local options = {
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
-      n = { ["q"] = require("telescope.actions").close },
+      n = { ["q"] = actions.close },
       -- Personal mappings
       i = {
-        ["<Esc>"] = require("telescope.actions").close,
-        ["jj"] = require("telescope.actions").close,
+        ["<Esc>"] = actions.close,
+        ["<C-f>"] = false,
+        ["<C-h>"] = actions.preview_scrolling_left,
+        ["<C-l>"] = actions.preview_scrolling_right,
+        -- The two shortcuts conflict with my yabai hotkeys
+        -- ["<A-h>"] = actions.results_scrolling_left,
+        -- ["<A-l>"] = actions.results_scrolling_right,
       }
     },
   },
