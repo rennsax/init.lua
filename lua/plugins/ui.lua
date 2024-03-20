@@ -54,14 +54,26 @@ local ui_plugins = {
       },
       dimInactive = true,
       overrides = function(colors)
+        local theme = colors.theme
+        local palette = colors.palette
         return {
+          TelescopeTitle = { fg = theme.ui.special, bold = true },
+          TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+          TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+          TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+          TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+          TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+          TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+          TelescopePreviewTitle = { bg = palette.waveAqua1 },
+          TelescopePromptTitle = { bg = palette.waveRed },
+          TelescopeResultsTitle = { bg = theme.ui.bg_m1, fg = theme.ui.bg_m1 },
           WinSeparator = {
             -- Make the window separator more visible
-            bg = colors.palette.bg_m3,
-            fg = colors.palette.oniViolet,
+            bg = palette.bg_m3,
+            fg = palette.oniViolet,
           },
           Visual = {
-            bg = colors.palette.waveBlue2,
+            bg = palette.waveBlue2,
           },
         }
       end
