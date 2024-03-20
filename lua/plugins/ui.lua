@@ -283,8 +283,10 @@ local ui_plugins = {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
     keys = {
-      "<leader>zz", "<cmd>ZenMode<cr>", mode = "n",
-      desc = "Toggle [Z]en Mode"
+      {
+        "<leader>zz", mode = "n", "<cmd>ZenMode<cr>",
+        desc = "Toggle [Z]en Mode",
+      }
     },
     opts = {
       plugins = {
