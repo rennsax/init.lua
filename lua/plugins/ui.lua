@@ -279,7 +279,22 @@ local ui_plugins = {
         desc = "Next trouble/quickfix item",
       },
     },
-  }
+  },
+
+  -- Lua
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    keys = {
+      "<leader>zz", "<cmd>ZenMode<cr>", mode = "n",
+      desc = "Toggle [Z]en Mode"
+    },
+    opts = {
+      plugins = {
+        tmux = { enabled = true }
+      },
+    }
+  },
 }
 
 return ui_plugins
