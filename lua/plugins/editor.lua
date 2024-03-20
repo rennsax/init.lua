@@ -64,32 +64,6 @@ return {
     },
   },
 
-  {
-    -- Examples:
-    --  - va)  - [V]isually select [A]round [)]paren
-    --  - yinq - [Y]ank [I]nside [N]ext [']quote
-    --  - ci'  - [C]hange [I]nside [']quote
-    'echasnovski/mini.ai',
-    event = "VeryLazy",
-    opts = {
-      custom_textobjects = {
-        n_lines = 500,
-        -- mini.ai applies its own bracket aliases
-        -- which alias b to "),] and }"
-        b = false,
-        -- Whole buffer
-        e = function()
-          local from = { line = 1, col = 1 }
-          local to = {
-            line = vim.fn.line('$'),
-            col = math.max(vim.fn.getline('$'):len(), 1)
-          }
-          return { from = from, to = to }
-        end
-      }
-    },
-  },
-
 	{
 		"kylechui/nvim-surround",
     keys = {
