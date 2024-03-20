@@ -19,6 +19,19 @@ map('n', '<leader>p', '"*p')
 map({'n', 'v'}, '<Leader>d', '"_d', { desc = "Delete with the black hole register" })
 map('n', 'q:', '<Nop>')
 
+-- Quickly resize the window size
+-- Ref: https://vim.fandom.com/wiki/Fast_window_resizing_with_plus/minus_keys
+map('n', '+', '<c-w>+')
+map('n', '-', '<c-w>-')
+map('n', 'g+', [[<cmd>exe "resize " . (winheight(0)*3/2)<CR>]], {
+  silent = true,
+  desc = "Increase win height to 1.5x",
+})
+map('n', 'g-', [[<cmd>exe "resize " . (winheight(0)*2/3)<CR>]], {
+  silent = true,
+  desc = "Decrease win height to 0.67x",
+})
+
 -- <VIM> inoremap jj <Esc>
 -- <VIM> nnoremap <silent> <Leader>n <cmd>nohl<CR>
 -- <VIM> nnoremap <silent> <M-u> <cmd>nohl<CR>
@@ -30,6 +43,10 @@ map('n', 'q:', '<Nop>')
 -- <VIM> nnoremap <Leader>d "_d
 -- <VIM> vnoremap <Leader>d "_d
 -- <VIM> nnoremap q: <Nop>
+-- <VIM> nnoremap + <c-w>+
+-- <VIM> nnoremap - <c-w>-
+-- <VIM> nnoremap <silent> g+ :exe "resize " . (winheight(0) * 3/2)<CR>
+-- <VIM> nnoremap <silent> g- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 -- Emac-like cursor move
 map({'c', 'i'}, '<C-F>', '<Right>')
