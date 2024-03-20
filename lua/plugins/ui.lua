@@ -12,13 +12,6 @@ local ui_plugins = {
   },
 
   {
-    "lewis6991/gitsigns.nvim",
-    event = "LazyFile",
-    opts = function ()
-      return require("plugins.configs.gitsigns")
-    end
-  },
-  {
     "nvim-tree/nvim-tree.lua",
     cmd = {
       "NvimTreeToggle",
