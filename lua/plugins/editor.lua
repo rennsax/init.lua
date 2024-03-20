@@ -95,10 +95,16 @@ return {
     keys = {
       "ys", "cs", "ds",
       "yS", "cS",
-      { "S", mode = 'v' }, { "<C-g>", mode = 'i' }
+      { "S", mode = 'v' },
+      { "<C-s>", mode = 'i' }, { "<C-\\>", mode = 'i' },
     },
-    opts = {},
-	},
+    opts = {
+      keymaps = {
+        insert = "<C-s>",
+        insert_line = "<C-\\>",
+      },
+    },
+  },
 
   {
     'echasnovski/mini.comment',
