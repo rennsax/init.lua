@@ -67,6 +67,10 @@ local ui_plugins = {
           TelescopePreviewTitle = { bg = palette.waveAqua1 },
           TelescopePromptTitle = { bg = palette.waveRed },
           TelescopeResultsTitle = { bg = theme.ui.bg_m1, fg = theme.ui.bg_m1 },
+          TelescopeResultsDiffAdd = { bg = theme.ui.bg_m1 },
+          TelescopeResultsDiffChange = { bg = theme.ui.bg_m1 },
+          TelescopeResultsDiffDelete = { bg = theme.ui.bg_m1 },
+          TelescopeResultsDiffUntracked = { bg = theme.ui.bg_m1 },
           WinSeparator = {
             -- Make the window separator more visible
             bg = palette.bg_m3,
