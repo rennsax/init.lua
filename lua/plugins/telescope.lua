@@ -98,6 +98,20 @@ return {
         },
       },
 
+      pickers = {
+        git_status = {
+          git_icons = {
+            added = "A",
+            changed = "M",
+            copied = "C",
+            deleted = "D",
+            renamed = "R",
+            unmerged = "U",
+            untracked = "?",
+          },
+        },
+      },
+
       extensions = {
         fzf = {
           fuzzy = true,
