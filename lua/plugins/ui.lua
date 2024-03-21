@@ -323,6 +323,7 @@ local ui_plugins = {
       symbol = "▏",
       -- symbol = "│",
       options = { try_as_border = true },
+      symbol = '❙',
     },
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
