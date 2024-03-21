@@ -91,29 +91,37 @@ local ui_plugins = {
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "LazyFile",
-    opts = {
-      indent = {
-        char = "▏",
-        tab_char = "▏",
-      },
-      scope = { enabled = false },
-      exclude = {
-        filetypes = {
-          "help",
-          "alpha",
-          "dashboard",
-          "neo-tree",
-          "Trouble",
-          "trouble",
-          "lazy",
-          "mason",
-          "notify",
-          "toggleterm",
-          "lazyterm",
+    opts = function()
+      return {
+        indent = {
+          char = "▏",
+          tab_char = "▏",
         },
-      },
-    },
+        scope = {
+          -- TODO: scope color?
+          enabled = true,
+        },
+        exclude = {
+          filetypes = {
+            "help",
+            "alpha",
+            "dashboard",
+            "neo-tree",
+            "Trouble",
+            "trouble",
+            "lazy",
+            "mason",
+            "notify",
+            "toggleterm",
+            "lazyterm",
+          },
+        },
+      }
+    end,
     main = "ibl",
+    config = function(_, opts)
+      require("ibl").setup(opts)
+    end,
   },
 
   {
