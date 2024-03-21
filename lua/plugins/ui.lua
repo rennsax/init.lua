@@ -302,7 +302,7 @@ local ui_plugins = {
     },
     opts = {
       plugins = {
-        tmux = { enabled = true }
+        tmux = { enabled = false }
       },
     }
   },
