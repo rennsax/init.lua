@@ -81,8 +81,22 @@ return {
   },
 
   {
-    'echasnovski/mini.comment',
-    event = "BufEnter",
+    "numToStr/Comment.nvim",
+    keys = function()
+      local api = require("Comment.api")
+      return {
+        { "gcc", mode = "n", desc = "Comment toggle current line" },
+        { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
+        { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
+        { "gbc", mode = "n", desc = "Comment toggle current block" },
+        { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
+        { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
+        { "<c-_>", mode = "n", api.toggle.linewise.current, desc = "Toggle line comment" },
+      }
+    end,
+    init = function()
+      vim.g.comment_maps = true
+    end,
     config = true,
   },
 
