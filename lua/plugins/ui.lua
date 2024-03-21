@@ -72,6 +72,13 @@ local ui_plugins = {
           Visual = {
             bg = palette.waveBlue2,
           },
+          RainbowDelimiterRed = { fg = palette.waveRed },
+          RainbowDelimiterYellow = { fg = palette.carpYellow },
+          RainbowDelimiterBlue = { fg = palette.waveBule2 },
+          RainbowDelimiterOrange = { fg = palette.dragonOrange2 },
+          RainbowDelimiterGreen = { fg = palette.dragonGreen },
+          RainbowDelimiterViolet = { fg = palette.oniViolet2 },
+          RainbowDelimiterCyan = { fg = palette.waveAqua2 },
         }
       end
     },
@@ -338,6 +345,12 @@ local ui_plugins = {
     opts = {
       char = "▏",
     },
+  },
+
+
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    event = "VeryLazy",
   },
 }
 
