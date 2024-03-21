@@ -12,26 +12,6 @@ local ui_plugins = {
   },
 
   {
-    "nvim-tree/nvim-tree.lua",
-    cmd = {
-      "NvimTreeToggle",
-      "NvimTreeOpen",
-      "NvimTreeFocus",
-    },
-    keys = {
-      {"<D-b>", mode = {'n','i','v'}, "<Cmd>NvimTreeFocus<CR>", desc = 'Focus Nvim-tree' },
-      {"<Leader>b", mode = 'n', "<Cmd>NvimTreeFocus<CR>", desc = 'Focus Nvim-tree' },
-      {
-        "<leader>e", mode = 'n', "<Cmd>NvimTreeToggle<CR>", desc = 'Toggle Nvim-tree'
-      }
-    },
-
-    opts = function()
-      return require("plugins.configs.nvim-tree")
-    end
-  },
-
-  {
     "rebelot/kanagawa.nvim",
     lazy = false,
     opts = {
