@@ -49,21 +49,25 @@ map('n', 'g-', [[<cmd>exe "resize " . (winheight(0)*2/3)<CR>]], {
 -- <VIM> nnoremap <silent> g- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 -- Emac-like cursor move
-map({'c', 'i'}, '<C-F>', '<Right>')
-map({'c', 'i'}, '<C-B>', '<Left>')
-map('c', '<C-a>', '<Home>')
-map('c', '<C-e>', '<End>')
-map('c', '<M-b>', '<S-Left>')
-map('c', '<M-f>', '<S-Right>')
+map({'c', 'i'}, '<c-f>', '<Right>')
+map({'c', 'i'}, '<c-b>', '<Left>')
+map({'c', 'i'}, '<c-a>', '<Home>')
+map({'c', 'i'}, '<c-e>', '<End>')
+map({'c', 'i'}, '<m-b>', '<S-Left>')
+map({'c', 'i'}, '<m-f>', '<S-Right>')
 
--- <VIM> cnoremap <C-A> <Home>
--- <VIM> cnoremap <C-E> <End>
--- <VIM> cnoremap <C-F> <Right>
--- <VIM> cnoremap <C-B> <Left>
--- <VIM> cnoremap <Esc>b <S-Left>
--- <VIM> cnoremap <Esc>f <S-Right>
--- <VIM> inoremap <C-b> <Left>
--- <VIM> inoremap <C-f> <Right>
+-- <VIM> cnoremap <c-a> <Home>
+-- <VIM> cnoremap <c-e> <End>
+-- <VIM> cnoremap <c-b> <Left>
+-- <VIM> cnoremap <c-f> <Right>
+-- <VIM> cnoremap <m-b> <S-Left>
+-- <VIM> cnoremap <m-f> <S-Right>
+-- <VIM> inoremap <c-a> <Home>
+-- <VIM> inoremap <c-e> <End>
+-- <VIM> inoremap <c-b> <Left>
+-- <VIM> inoremap <c-f> <Right>
+-- <VIM> inoremap <m-b> <S-Left>
+-- <VIM> inoremap <m-f> <S-Right>
 
 -- [[ "THE BEST" Keymaps ]]
 -- Originated from ThePrimeagen/init.lua
