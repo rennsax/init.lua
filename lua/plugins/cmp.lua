@@ -14,6 +14,7 @@ local get_nvim_cmp_options = function()
 
     -- The order of the sources determines their order in the completion results.
     sources = cmp.config.sources({
+      { name = "nvim_lsp" },
       { name = "luasnip" }, -- L3MON4D3/LuaSnip
       { name = "nvim_lua" }, -- hrsh7th/cmp-nvim-lua
     }, {
@@ -97,7 +98,7 @@ return {
 
       -- cmp sources
       {
-        -- "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lsp",
         "saadparwaiz1/cmp_luasnip",
         "hrsh7th/cmp-nvim-lua", -- Neovim Lua API
         "hrsh7th/cmp-buffer",
@@ -105,6 +106,12 @@ return {
       }
     },
     opts = get_nvim_cmp_options,
+    config = function(_, opts)
+      local lsp_zero = require("lsp-zero")
+      lsp_zero.extend_cmp()
+
+      require("cmp").setup(opts)
+    end
   }
 }
 
