@@ -329,7 +329,16 @@ local ui_plugins = {
         end,
       })
     end,
-  }
+  },
+
+  {
+    -- Show the colorcolumn as a char with highlight group "NonText"
+    'lukas-reineke/virt-column.nvim',
+    event = "VeryLazy",
+    opts = {
+      char = "▏",
+    },
+  },
 }
 
 return ui_plugins
