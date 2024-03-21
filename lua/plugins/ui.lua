@@ -360,6 +360,15 @@ local ui_plugins = {
     "HiPhish/rainbow-delimiters.nvim",
     event = "VeryLazy",
   },
+
+  {
+    'numToStr/FTerm.nvim',
+    opts = {},
+    keys = {
+      { "<leader>f", mode = "n", function() require("FTerm").toggle() end, desc = "Toggle Float Term" },
+    },
+  },
+
 }
 
 return ui_plugins
