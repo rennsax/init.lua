@@ -240,11 +240,6 @@ local ui_plugins = {
     cmd = { "TodoTrouble", "TodoTelescope" },
     dependencies = { "nvim-lua/plenary.nvim" },
     event = "LazyFile",
-    opts = {
-      highlight = {
-        comments_only = false
-      },
-    },
     config = true,
     -- stylua: ignore
     keys = {
