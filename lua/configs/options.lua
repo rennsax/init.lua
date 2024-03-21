@@ -89,8 +89,8 @@ opt.wildignore = ".pyc,.swp"
 -- <VIM> set title
 opt.title = true
 
--- <VIM> set wrap
-opt.wrap = true
+-- <VIM> set nowrap
+opt.wrap = false
 
 -- Enable break indent
 -- <VIM> set bri
