@@ -73,4 +73,20 @@ M.icons = {
   },
 }
 
+M.native_fts = {
+  "help",
+  "alpha",
+  "dashboard",
+  "neo-tree",
+  "NvimTree",
+  "Trouble",
+  "trouble",
+  "lazy",
+  "mason",
+  "notify",
+  "toggleterm",
+  "lazyterm",
+  "query", -- :InspectTree
+}
+
 return M

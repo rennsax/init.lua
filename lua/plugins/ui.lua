@@ -82,20 +82,7 @@ local ui_plugins = {
           enabled = true,
         },
         exclude = {
-          filetypes = {
-            "help",
-            "alpha",
-            "dashboard",
-            "neo-tree",
-            "NvimTree",
-            "Trouble",
-            "trouble",
-            "lazy",
-            "mason",
-            "notify",
-            "toggleterm",
-            "lazyterm",
-          },
+          filetypes = require("lazyvim.config").native_fts,
         },
       }
     end,
@@ -302,21 +289,9 @@ local ui_plugins = {
       symbol = '❙',
     },
     init = function()
+      local pattern = require("lazyvim.config").native_fts
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "help",
-          "alpha",
-          "dashboard",
-          "neo-tree",
-          "NvimTree",
-          "Trouble",
-          "trouble",
-          "lazy",
-          "mason",
-          "notify",
-          "toggleterm",
-          "lazyterm",
-        },
+        pattern = pattern,
         callback = function()
           vim.b.miniindentscope_disable = true
         end,
