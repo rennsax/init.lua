@@ -32,6 +32,8 @@ M.lazy_file_events = { "BufReadPost", "BufNewFile", "BufWritePre" }
 
 -- Copy from https://github.com/LazyVim/LazyVim/blob/864c58cae6df28c602ecb4c94bc12a46206760aa/lua/lazyvim/util/plugin.lua#L59-L125
 -- Properly load file based plugins without blocking the UI
+-- What is "LazyFile" event? See the clarification here:
+-- https://github.com/LazyVim/LazyVim/discussions/1583#discussioncomment-7187450
 function M.lazy_file()
   M.use_lazy_file = M.use_lazy_file and vim.fn.argc(-1) > 0
 
