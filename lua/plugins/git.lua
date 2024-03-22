@@ -48,6 +48,9 @@ return {
       { '<leader>gD', '<cmd>Gvdiffsplit HEAD~<cr>', desc = "[G]it [D]iff HEAD~" },
       { '<leader>gg', '<cmd>Gvsplit :<cr>', desc = "fugitive summary vertical" },
       { '<leader>gG', '<cmd>Git<cr>', desc = "fugitive summary" },
+      { '<leader>gc', ':Git commit', desc = "git commit" },
+      { '<leader>gcv', '<cmd>Git commit -v<cr>', desc = "git commit verbosely" },
+      { '<leader>gce', '<cmd>Git commit --no-edit<cr>', desc = "git extend" },
     },
   }
 }
