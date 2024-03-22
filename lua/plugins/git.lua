@@ -10,13 +10,15 @@ return {
     event = "LazyFile",
     opts = {
       signs = {
-        add = { text = "│" },
-        change = { text = "│" },
-        delete = { text = "󰍵" },
-        topdelete = { text = "‾" },
+        add          = { text = "┃" },
+        change       = { text = "┃" },
+        delete       = { text = " " },
+        topdelete    = { text = "▔" },
         changedelete = { text = "~" },
-        untracked = { text = "│" },
+        untracked    = { text = "┇" },
       },
+      -- Also show gitsigns in untracked files.
+      attach_to_untracked = true,
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
 
