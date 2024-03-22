@@ -1,9 +1,5 @@
 -- git integration plugins
 
-if vim.g.vscode then
-  return {}
-end
-
 return {
   {
     "lewis6991/gitsigns.nvim",

@@ -1,5 +1,4 @@
 return {
-  enabled = not vim.g.vscode,
   'nvim-telescope/telescope.nvim',
   cmd = "Telescope",
   keys = function ()

@@ -1,7 +1,3 @@
-if vim.g.vscode then
-  return {}
-end
-
 require("lazyvim.util").lazy_file()
 
 local ui_plugins = {

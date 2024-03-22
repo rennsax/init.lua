@@ -1,7 +1,3 @@
-if vim.g.vscode then
-  return {}
-end
-
 -- Options must be wrapped in a callback since it requires some modules.
 local cmp_options = function()
   local cmp = require "cmp"
