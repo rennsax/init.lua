@@ -322,6 +322,24 @@ local ui_plugins = {
     },
   },
 
+  {
+    -- Replace vim.ui.input and vim.ui.select.
+    "stevearc/dressing.nvim",
+    -- A trick to lazy load dressing.nvim.
+    init = function()
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.select = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.select(...)
+      end
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.input = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.input(...)
+      end
+    end,
+  },
+
 }
 
 return ui_plugins
