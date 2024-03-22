@@ -21,7 +21,7 @@ return {
   {
     'neovim/nvim-lspconfig',
     cmd = "LspInfo",
-    event = {'BufReadPre', 'BufNewFile'},
+    event = "LazyFile",
     dependencies = {
       "cmp-nvim-lsp"
     },
@@ -41,6 +41,7 @@ return {
 
       -- (Optional) Configure lua language server for neovim
       local lua_opts = lsp_zero.nvim_lua_ls()
+      lua_opts.autostart = false
       require('lspconfig').lua_ls.setup(lua_opts)
     end
   },
