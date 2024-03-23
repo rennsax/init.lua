@@ -92,8 +92,8 @@ local ui_plugins = {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     keys = {
-      { "<S-tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
-      { "<tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+      { "<leader><S-tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
+      { "<leader><tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
     },
     opts = {
       options = {
