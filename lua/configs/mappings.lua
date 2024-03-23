@@ -19,6 +19,13 @@ map('n', '<leader>p', '"*p')
 map({'n', 'v'}, '<Leader>d', '"_d', { desc = "Delete with the black hole register" })
 map('n', 'q:', '<Nop>')
 
+-- When in select mode (e.g. jump to an InsertNode in LuaSnip), <BS> will delete
+-- the selected text and **go to the normal mode**, which is inconsistent with
+-- VS Code behavior. To address this issue, I remap <BS> to <Space><BS>, i.e.
+-- replace the selected text with a single space and then delete it. <Space> can
+-- be any printable character.
+map("s", "<BS>", "<Space><BS>")
+
 -- Quickly resize the window size
 -- Ref: https://vim.fandom.com/wiki/Fast_window_resizing_with_plus/minus_keys
 -- TODO: support v:count
