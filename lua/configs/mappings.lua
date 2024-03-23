@@ -21,13 +21,15 @@ map('n', 'q:', '<Nop>')
 
 -- Quickly resize the window size
 -- Ref: https://vim.fandom.com/wiki/Fast_window_resizing_with_plus/minus_keys
-map('n', '+', '<c-w>+')
-map('n', '-', '<c-w>-')
-map('n', 'g+', [[<cmd>exe "resize " . (winheight(0)*3/2)<CR>]], {
+-- TODO: support v:count
+map('n', '+', '<c-w>>')
+map('n', '-', '<c-w><')
+-- map('n', '-', function () return '<c-w>' .. vim.v.count .. '<' end, { expr = true })
+map('n', 'g+', [[<cmd>exe "vert resize " . (winwidth(0)*3/2)<CR>]], {
   silent = true,
   desc = "Increase win height to 1.5x",
 })
-map('n', 'g-', [[<cmd>exe "resize " . (winheight(0)*2/3)<CR>]], {
+map('n', 'g-', [[<cmd>exe "vert resize " . (winwidth(0)*2/3)<CR>]], {
   silent = true,
   desc = "Decrease win height to 0.67x",
 })
