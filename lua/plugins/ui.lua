@@ -93,7 +93,9 @@ local ui_plugins = {
     event = "VeryLazy",
     keys = {
       { "<leader><S-tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
+      { "<D-{>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
       { "<leader><tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+      { "<D-}>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
     },
     opts = {
       options = {
