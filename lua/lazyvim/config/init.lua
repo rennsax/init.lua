@@ -88,6 +88,7 @@ M.native_fts = {
   "lazyterm",
   "query", -- :InspectTree
   "fugitive",
+  "noice",
 }
 
 return M
