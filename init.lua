@@ -16,12 +16,12 @@ require "configs.options"
 -- load plugins
 -- For lazy.nvim, specify either `opts = {}` or `config = true` will run
 -- the default setup routine (`require(MAIN).setup()`) when the plugin is loaded.
-require("lazy").setup({
+require("lazy").setup(vim.tbl_extend("error", require("plugins.configs.lazy"), {
   spec = {
     { import = "plugins.extras.vscode" },
     { import = "plugins" },
   },
-}, require "plugins.configs.lazy")
+}))
 
 vim.schedule(function()
   require "configs.mappings"
