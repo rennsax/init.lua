@@ -345,6 +345,9 @@ local ui_plugins = {
   -- messages, cmdline and the popupmenu.
   {
     "folke/noice.nvim",
+    keys = {
+      { "<leader>mg", "<cmd>NoiceHistory<cr>", mode = 'n', desc = "NoiceHistory (message)" },
+    },
     event = "VeryLazy",
     opts = {
       cmdline = {
