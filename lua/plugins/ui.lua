@@ -268,6 +268,9 @@ local ui_plugins = {
       }
     },
     opts = {
+      window = {
+        width = 105,
+      },
       plugins = {
         tmux = { enabled = false }
       },
