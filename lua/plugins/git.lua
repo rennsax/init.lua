@@ -50,7 +50,7 @@ return {
       { '<leader>gG', '<cmd>Git<cr>', desc = "fugitive summary" },
       { '<leader>gc', ':Git commit', desc = "git commit" },
       { '<leader>gcv', '<cmd>Git commit -v<cr>', desc = "git commit verbosely" },
-      { '<leader>gce', '<cmd>Git commit --no-edit<cr>', desc = "git extend" },
+      { '<leader>gce', '<cmd>Git commit --amend --no-edit<cr>', desc = "git extend" },
     },
   }
 }
