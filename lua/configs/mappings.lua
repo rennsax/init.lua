@@ -1,9 +1,5 @@
 local map = vim.keymap.set
 
-local mac_cmd_map = function(lhs, rhs, opts)
-  map({"n","i","v"}, lhs, rhs, opts)
-end
-
 -- [[ Basic Keymaps ]]
 --  See `:help keymap()`
 --  By default, remap = false (i.e. Xnoremap)
@@ -104,15 +100,6 @@ map("n", "N", "Nzzzv")
 
 map("n", "<leader>rn",
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "[R]ename [S]ymbol (globally)" })
-
--- [[ GUI-specified Keymaps ]]
--- These keymaps are only available when a GUI frontend is used.
--- On macOS, D=<Cmd>, M=Meta=<Alt>
-
-mac_cmd_map('<D-`>', '<C-\\><C-N><C-^>', { desc = "Edit previously edited file" })
-mac_cmd_map('<D-s>', '<Cmd>w<CR>', { desc = "Write buffer" })
-mac_cmd_map('<D-v>', '<Esc>"*pa', { desc = "Paste from system clipborad" })
-
 
 if not vim.g.vscode then
   --  See `:help wincmd` for a list of all window commands

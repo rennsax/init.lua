@@ -123,37 +123,6 @@ opt.tabstop = 4
 -- <VIM> set sts=4
 opt.softtabstop = 4
 
-if g.neovide then
-  g.neovide_input_macos_alt_is_meta = true
-  g.neovide_padding_top = 10
-  g.neovide_padding_bottom = 10
-  g.neovide_padding_right = 10
-  g.neovide_padding_left = 10
-  g.neovide_window_blurred = true
-  g.neovide_transparency = 0.96
-  g.neovide_hide_mouse_when_typing = true
-
-  -- Auto-disable IME (input method) when entering insert mode
-  local function set_ime(args)
-    if args.event:match("Enter$") then
-      g.neovide_input_ime = true
-    else
-      g.neovide_input_ime = false
-    end
-  end
-  local ime_input = vim.api.nvim_create_augroup("ime_input", { clear = true })
-  vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave" }, {
-    group = ime_input,
-    pattern = "*",
-    callback = set_ime
-  })
-  vim.api.nvim_create_autocmd({ "CmdlineEnter", "CmdlineLeave" }, {
-    group = ime_input,
-    pattern = "[/\\?]",
-    callback = set_ime
-  })
-end
-
 -- [[ Vim-compliant Options ]]
 -- Options below are set by neovim by default, but kept for vim-compatiblity.
 
