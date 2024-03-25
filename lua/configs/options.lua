@@ -62,7 +62,6 @@ opt.inccommand = 'split'
 
 -- Show which line and column your cursor is on
 -- <VIM> set cul
--- set cuc
 opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
@@ -78,7 +77,6 @@ opt.hlsearch = true
 opt.incsearch = true
 
 -- 24-bit RGB color
--- <VIM> set tgc
 opt.termguicolors = true
 
 -- Ignored when expanding |wildcards|
