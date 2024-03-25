@@ -317,10 +317,27 @@ local ui_plugins = {
 
   {
     'numToStr/FTerm.nvim',
-    opts = {},
+    opts = {
+      ft = "fterm"
+    },
     keys = {
       { "<leader>f", mode = "n", function() require("FTerm").toggle() end, desc = "Toggle Float Term" },
     },
+    config = function(_, opts)
+      require("FTerm").setup(opts)
+      local fterm_keymap_group = vim.api.nvim_create_augroup('fterm_keymap_group', { clear = true })
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = opts.ft,
+        group = fterm_keymap_group,
+        callback = function()
+          vim.keymap.set({"n", "t"}, "<esc>", "<cmd>q<cr>", {
+            desc = "Quit FTerm",
+            buffer = true,
+            silent = true,
+          })
+        end
+      })
+    end
   },
 
   {
