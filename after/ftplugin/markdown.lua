@@ -1,3 +1,9 @@
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt_local.tabstop = 2
+vim.opt_local.softtabstop = 2
+vim.opt_local.shiftwidth = 2
+vim.opt_local.wrap = true
+
+vim.cmd [[
+  onoremap <silent> ii :<c-u>normal! ^llvg_<cr>
+]]
+
