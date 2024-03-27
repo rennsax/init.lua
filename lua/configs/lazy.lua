@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 -- the default setup routine (`require(MAIN).setup()`) when the plugin is loaded.
 require("lazy").setup({
   spec = {
+    { import = "plugins.lsp" },
     { import = "plugins.extras.neovide" },
     { import = "plugins.extras.vscode" },
     { import = "plugins" },
