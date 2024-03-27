@@ -105,4 +105,12 @@ return {
     keys = { "gr", "grr" },
   },
 
+  {
+    "sontungexpt/url-open",
+    event = "LazyFile",
+    opts = {},
+    keys = {
+      { "gx", "<cmd>URLOpenUnderCursor<cr>", mode = "n", desc = "Open URL" }
+    },
+  },
 }
