@@ -8,9 +8,8 @@ return {
   keys = {
     {"<D-b>", mode = {'n','i','v'}, "<Cmd>NvimTreeFocus<CR>", desc = 'Focus Nvim-tree' },
     {"<Leader>b", mode = 'n', "<Cmd>NvimTreeFocus<CR>", desc = 'Focus Nvim-tree' },
-    {
-      "<leader>e", mode = 'n', "<Cmd>NvimTreeToggle<CR>", desc = 'Toggle Nvim-tree'
-    }
+    { "<leader>e", mode = 'n', "<Cmd>NvimTreeToggle<CR>", desc = 'Toggle Nvim-tree' },
+    { "<leader>E", mode = 'n', "<Cmd>NvimTreeFindFile<CR>", desc = 'Find current file in Nvim-tree' }
   },
 
   opts = {
@@ -22,10 +21,6 @@ return {
     hijack_cursor = true,
     hijack_unnamed_buffer_when_opening = false,
     sync_root_with_cwd = true,
-    update_focused_file = {
-      enable = true,
-      update_root = false,
-    },
     view = {
       adaptive_size = false,
       side = "left",
