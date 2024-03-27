@@ -85,6 +85,10 @@ return {
           jdtls = function()
             require('lspconfig').jdtls.setup({})
           end,
+
+          cmake = function()
+            require('lspconfig').cmake.setup{ autostart = true }
+          end
         },
       })
 
