@@ -89,6 +89,7 @@ M.native_fts = {
   "query", -- :InspectTree
   "fugitive",
   "noice",
+  "undotree",
 }
 
 return M

@@ -420,7 +420,7 @@ local ui_plugins = {
           end,
           max_width = function()
             -- Smaller width, or the notify window will conver the text on my laptop.
-            return math.floor(vim.o.columns * 0.2)
+            return math.floor(vim.o.columns * 0.4)
           end,
           on_open = function(win)
             vim.api.nvim_win_set_config(win, { zindex = 100 })

@@ -38,9 +38,10 @@ return {
 
     local options = {
       defaults = {
+        -- For live_grep and grep_string pickers.
         vimgrep_arguments = {
           "rg",
-          "-L",
+          "-L", -- "--follow", follow symlinks
           "--color=never",
           "--no-heading",
           "--with-filename",
