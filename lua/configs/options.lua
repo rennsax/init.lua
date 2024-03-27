@@ -8,10 +8,7 @@ local opt = vim.opt
 -- <VIM> let mapleader=" "
 -- <VIM> let maplocalleader=" "
 
--- For lazy.nvim
-g.have_nerd_font = true
-
--- [[ Setting options ]]
+-- [[ Setting options ]] {{{
 -- See `:help vim.opt` and `:help option-list`
 
 -- <VIM> set number relativenumber
@@ -121,7 +118,14 @@ opt.tabstop = 4
 -- <VIM> set sts=4
 opt.softtabstop = 4
 
--- [[ Vim-compliant Options ]]
+-- Since the default <c-f> is remapped.
+-- set cedit=<c-q>
+opt.cedit = "<c-q>"
+
+-- }}}
+
+-- [[ Vim-compliant Options ]] {{{
+
 -- Options below are set by neovim by default, but kept for vim-compatiblity.
 
 -- <VIM> set autoindent
@@ -137,3 +141,6 @@ opt.softtabstop = 4
 -- Automatically read file into buffer when the file is changed by others
 -- <VIM> set autoread
 
+-- }}}
+
+-- vim: set fdm=marker:
