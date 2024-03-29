@@ -90,6 +90,7 @@ M.native_fts = {
   "fugitive",
   "noice",
   "undotree",
+  "fterm",
 }
 
 return M

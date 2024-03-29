@@ -111,7 +111,8 @@ if not vim.g.vscode then
 
   map({'i','t','v'}, '<C-h>', '<C-\\><C-N><C-w>h')
   map({'i','t','v'}, '<C-j>', '<C-\\><C-N><C-w>j')
-  map({'i','t','v'}, '<C-k>', '<C-\\><C-N><C-w>k')
+  -- Do not map <C-k> in insert-mode. It conflicts with signature help.
+  map({'t','v'}, '<C-k>', '<C-\\><C-N><C-w>k')
   map({'i','v'}, '<C-l>', '<C-\\><C-N><C-w>l') -- Do not map <C-L> in terminal-mode
 
 -- <VIM> nnoremap <C-h> <C-w><C-h>

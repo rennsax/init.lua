@@ -411,6 +411,7 @@ local ui_plugins = {
               require("notify").dismiss({ silent = true, pending = true })
             end,
             desc = "Dismiss all notify",
+            silent = true,
           },
         },
         opts = {
