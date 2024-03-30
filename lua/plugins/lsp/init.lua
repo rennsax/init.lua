@@ -88,11 +88,21 @@ return {
 
           cmake = function()
             require('lspconfig').cmake.setup{ autostart = true }
+          end,
+
+          gopls = function()
+            require("lspconfig").gopls.setup{}
           end
         },
       })
 
     end
+  },
+
+  {
+    "nvimtools/none-ls.nvim",
+    dependencies = { "mason.nvim" },
+    enabled = false,
   },
 
 }
