@@ -1,6 +1,7 @@
 local g = vim.g
 local o = vim.o
 local opt = vim.opt
+local env = vim.env
 
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -8,26 +9,32 @@ local opt = vim.opt
 -- <VIM> let mapleader=" "
 -- <VIM> let maplocalleader=" "
 
--- [[ Setting options ]] {{{
--- See `:help vim.opt` and `:help option-list`
+-- [[ Very Important!!! ]] {{{
 
--- <VIM> set number relativenumber
-opt.number = true
-opt.relativenumber = true
-
--- Mouse mode is useful when resizing the windows.
--- <VIM> set mouse=
-opt.mouse = 'a'
-
--- <VIM> set nosmd
-opt.showmode = false
+-- <VIM> set bk wb
+-- <VIM> set bdir=$XDG_STATE_HOME/nvim/backup/
+opt.backup = true
+opt.writebackup = true
+opt.backupdir = env.XDG_STATE_HOME .. "/nvim/backup/"
 
 -- Persistent undoes
 -- <VIM> set undofile
 opt.undofile = true
 
--- Keep signcolumn on by default
-opt.signcolumn = 'yes'
+-- Automatically read file into buffer when the file is changed by others
+-- <VIM> set autoread
+opt.autoread = true
+
+-- }}}
+
+-- [[ UI ]] {{{
+
+-- <VIM> set number relativenumber
+opt.number = true
+opt.relativenumber = true
+
+-- Instead, we have status line
+opt.showmode = false
 
 -- Display tab and trailing spaces specially
 -- <VIM> set list
@@ -35,8 +42,39 @@ opt.signcolumn = 'yes'
 opt.list = true
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+-- Keep signcolumn on by default
+opt.signcolumn = 'yes'
+
+-- Show which line your cursor is on
+-- <VIM> set cul
+opt.cursorline = true
+
+-- Minimal number of screen lines to keep above and below the cursor.
+-- <VIM> set scrolloff=6
+opt.scrolloff = 6
+
+-- A ruler at column 80
+-- <VIM> set cc=80
+opt.colorcolumn = '80'
+
+-- <VIM> set nowrap
+opt.wrap = false
+
+-- Affect terminal title
+-- <VIM> set title
+opt.title = true
+
+-- }}}
+
+-- [[ Setting options ]] {{{
+
+-- Mouse mode is useful when resizing the windows.
+-- <VIM> set mouse=
+opt.mouse = 'a'
+
 -- <VIM> set ignorecase smartcase
 opt.ignorecase = true
+-- Override the 'ignorecase' option if the search pattern contains upper case characters.
 opt.smartcase = true
 
 -- How long (milliseconds) when a swap file will be written back to disk
@@ -57,14 +95,6 @@ opt.splitbelow = true
 -- <VIM> set inccommand=split
 opt.inccommand = 'split'
 
--- Show which line and column your cursor is on
--- <VIM> set cul
-opt.cursorline = true
-
--- Minimal number of screen lines to keep above and below the cursor.
--- <VIM> set scrolloff=6
-opt.scrolloff = 6
-
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 -- <VIM> set hlsearch
 opt.hlsearch = true
@@ -80,20 +110,9 @@ opt.termguicolors = true
 -- <VIM> set wildignore+=.pyc,.swp
 opt.wildignore = ".pyc,.swp"
 
--- Affect terminal title
--- <VIM> set title
-opt.title = true
-
--- <VIM> set nowrap
-opt.wrap = false
-
 -- Enable break indent
 -- <VIM> set bri
 opt.breakindent = true
-
--- A ruler at column 80
--- <VIM> set cc=80
-opt.colorcolumn = '80'
 
 -- Replace tab with spaces in insert mode
 -- <VIM> set et
@@ -137,9 +156,6 @@ opt.cedit = "<c-q>"
 
 -- Always display the status bar
 -- <VIM> set laststatus=2
-
--- Automatically read file into buffer when the file is changed by others
--- <VIM> set autoread
 
 -- }}}
 
